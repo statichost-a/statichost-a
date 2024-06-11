@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items for Sale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .item h2 {
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+
+        .item .price {
+            font-size: 1.2em;
+            color: #e91e63;
+            margin-top: 10px;
+        }
+
+        .item p {
+            text-align: left;
+        }
+
+        .item a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+        }
+
+        .map-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-footer img {
+            width: 200px; /* Adjust the size as needed */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Garage sale</h1>
+    </header>
+    <section class="items">
+        <!-- Repeat this block for each item -->
+        <div class="item" onclick="openModal(this)">
+            <img src="images/sofa.jpg" alt="Item Image">
+            <h2>Black Leather Sofa</h2>
+            <p><a href="https://www.wayfair.com/furniture/pdp/three-posts-lamontagne-86-leather-sofa-w001347395.html?piid=1826999976" target="_blank">Wayfair item</a>: Its in really good condition. The throw pillows shown in the image are also available with this sofa. No damages or wear & tear.</p>
+            <p class="price">$1700</p>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="images/tv_stand.jpeg" alt="Item Image">
+            <h2>White/Black TV Stand</h2>
+            <p><a target="_blank" href="https://www.wayfair.com/furniture/pdp/three-posts-lorraine-tv-stand-for-tvs-up-to-60-w001527559.html">Wayfair item</a>: Highly rated Lorraine TV stand for TVs upto 60". The back side of the stand has a small wood that's missing but besides that there is no other damage.</p>
+            <p class="price">$150</p>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="images/sofa.jpg" alt="Item Image">
+            <h2>Black Leather Sofa</h2>
+            <p><a target="_blank" href="https://www.wayfair.com/furniture/pdp/three-posts-lamontagne-86-leather-sofa-w001347395.html?piid=1826999976">Wayfair item</a>: Its in really good condition. The throw pillows shown in the image are also available with this sofa. No damages or wear & tear.</p>
+            <p class="price">$1700</p>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="images/sofa.jpg" alt="Item Image">
+            <h2>Black Leather Sofa</h2>
+            <p><a target="_blank" href="https://www.wayfair.com/furniture/pdp/three-posts-lamontagne-86-leather-sofa-w001347395.html?piid=1826999976">Wayfair item</a>: Its in really good condition. The throw pillows shown in the image are also available with this sofa. No damages or wear & tear.</p>
+            <p class="price">$1700</p>
+        </div>
+        <div class="item" onclick="openModal(this)">
+            <img src="images/sofa.jpg" alt="Item Image">
+            <h2>Black Leather Sofa</h2>
+            <p><a target="_blank" href="https://www.wayfair.com/furniture/pdp/three-posts-lamontagne-86-leather-sofa-w001347395.html?piid=1826999976">Wayfair item</a>: Its in really good condition. The throw pillows shown in the image are also available with this sofa. No damages or wear & tear.</p>
+            <p class="price">$1700</p>
+        </div>
+        <!-- End of item block -->
+    </section>
+    <footer>
+        <p>Contact: Naren. Mobile: +1 716 ...</p>
+        <div class="map-footer">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Greenpoint,Brooklyn,NY&zoom=13&size=200x200&maptype=roadmap&markers=color:red%7CGreenpoint,Brooklyn,NY&key=AIzaSyDq790hkg80x2uYVjarJ7rncFkqhgizUdg" alt="Map showing Greenpoint, Brooklyn, NY">
+        </div>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var modalImg = document.getElementById("img01");
+
+        function openModal(element) {
+            modal.style.display = "block";
+            modalImg.src = element.getElementsByTagName('img')[0].src;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
